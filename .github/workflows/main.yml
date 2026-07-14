@@ -54,6 +54,7 @@ jobs:
       - name: Deploy to EKS
         run: |
           pwd
+          cat deployment-service.yml
           sed -i "s|ugogabriel/gab-blogging-app:*|$IMAGE_NAME:${{ github.run_number }}|g"  deployment-service.yml
           cat deployment-service.yml
           kubectl get nodes
