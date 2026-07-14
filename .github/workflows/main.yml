@@ -34,11 +34,11 @@ jobs:
 
       - name: Build Docker Image
         run: |
-          docker build -t $IMAGE_NAME:${{ github.run_number }} .
+          docker build -t sireeshahub1802/java:v1 .
 
       - name: Push Docker Image
         run: |
-          docker push $IMAGE_NAME:${{ github.run_number }}
+          docker push sireeshahub1802/java:v1
 
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v4
@@ -55,7 +55,7 @@ jobs:
         run: |
           pwd
           cat deployment-service.yml
-          sed -i "s|image: .*|image: sireeshahub1802/java:${{ github.run_number }}|g" deployment-service.yml
+          sed -i "s|image: .*|image: sireeshahub1802/java:v1|g" deployment-service.yml
           cat deployment-service.yml
           kubectl get nodes
           kubectl apply -f deployment-service.yml
