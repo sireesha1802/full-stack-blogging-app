@@ -55,6 +55,5 @@ jobs:
         run: |
           pwd
           sed -i "s|ugogabriel/gab-blogging-app:*|$IMAGE_NAME:${{ github.run_number }}|g"  deployment-service.yml
-          kubectl apply -f deployment-service.yml
-          kubectl get pods -A
-          kubectl get svc
+          cat deployment-service.yml
+          kubectl get nodes
