@@ -55,7 +55,7 @@ jobs:
         run: |
           pwd
           cat deployment-service.yml
-          sed -i "s|^\([[:space:]]*image:[[:space:]]*\).*|\1$IMAGE_NAME:${{ github.run_number }}|" deployment-service.yml
+          sed -i "s|image: .*|image: sireeshahub1802/java:${{ github.run_number }}|g" deployment-service.yml
           cat deployment-service.yml
           kubectl get nodes
           kubectl apply -f deployment-service.yml
