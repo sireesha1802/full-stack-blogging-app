@@ -55,3 +55,5 @@ jobs:
       - name: Deploy to EKS
         run: |
           kubectl apply -f deployment-service.yml
+          kubectl get pods -A
+          kubectl get svc
