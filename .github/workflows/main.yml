@@ -48,6 +48,9 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
 
+      - name: Verify AWS Login
+        run: aws sts get-caller-identity
+        
       # - name: Configure EKS Access
       #   run: |
       #     aws eks update-kubeconfig --name board --region us-east-1
